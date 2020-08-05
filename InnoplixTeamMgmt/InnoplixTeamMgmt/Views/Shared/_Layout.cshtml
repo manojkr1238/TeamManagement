@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>@ViewData["Title"] - InnoplixTeamMgmt</title>
+    <title>@ViewBag.Title - InnoplixTeamMgmt</title>
 
     <!-- Custom fonts for this template-->
     <link href="~/theme/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -17,7 +17,7 @@
 
     <!-- Custom styles for this template-->
     <link href="~/theme/css/sb-admin-2.min.css" rel="stylesheet">
-
+    @RenderSection("Style", required: false)
 </head>
 
 <body id="page-top">
@@ -40,7 +40,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" asp-controller="Home" asp-action="Index">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span>
                 </a>
@@ -57,14 +57,15 @@
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Components</span>
+                    <i class="fas fa-address-card"></i>
+                    <span>Lead Generation</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="buttons.html">Buttons</a>
-                        <a class="collapse-item" href="cards.html">Cards</a>
+                        <h6 class="collapse-header">Target Audience:</h6>
+                        <a class="collapse-item" asp-controller="Prospect" asp-action="List">List Book</a>
+                        <a class="collapse-item" href="cards.html">Customers</a>
+                        <a class="collapse-item" href="cards.html">Organiser</a>
                     </div>
                 </div>
             </li>
@@ -72,16 +73,99 @@
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Utilities</span>
+                    <i class="fas fa-user-graduate"></i>
+                    <span>My Team</span>
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="utilities-color.html">Colors</a>
-                        <a class="collapse-item" href="utilities-border.html">Borders</a>
-                        <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                        <a class="collapse-item" href="utilities-other.html">Other</a>
+                        <h6 class="collapse-header">Team Details:</h6>
+                        <a class="collapse-item" href="utilities-color.html">Distributors</a>
+                        <a class="collapse-item" href="utilities-border.html">Active Distributors</a>
+                        <a class="collapse-item" href="utilities-animation.html">Rank Holders</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Nav Item - Utilities Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSales" aria-expanded="true" aria-controls="collapseSales">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Sales Manager</span>
+                </a>
+                <div id="collapseSales" class="collapse" aria-labelledby="headingSales" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Sales Activities:</h6>
+                        <a class="collapse-item" href="utilities-color.html">New Closing</a>
+                        <a class="collapse-item" href="utilities-color.html">Repurchase</a>
+                        <a class="collapse-item" href="utilities-color.html">Daily Work</a>
+                        <a class="collapse-item" href="utilities-border.html">Weekly Work</a>
+                        <a class="collapse-item" href="utilities-animation.html">Monthly Work</a>
+                        <a class="collapse-item" href="utilities-animation.html">Review</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Nav Item - Utilities Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseRetail" aria-expanded="true" aria-controls="collapseRetail">
+                    <i class="fas fa-funnel-dollar"></i>
+                    <span>Retail Manager</span>
+                </a>
+                <div id="collapseRetail" class="collapse" aria-labelledby="headingRetail" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Retail Activities:</h6>
+                        <a class="collapse-item" href="utilities-color.html">Products</a>
+                        <a class="collapse-item" href="utilities-color.html">Stock</a>
+                        <a class="collapse-item" href="utilities-color.html">Invoice</a>
+                        <a class="collapse-item" href="utilities-border.html">Next Due Reminder</a>
+                        <a class="collapse-item" href="utilities-animation.html">Reports</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Nav Item - Documents Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseDocuments" aria-expanded="true" aria-controls="collapseDocuments">
+                    <i class="fas fa-folder-open"></i>
+                    <span>Document Manager</span>
+                </a>
+                <div id="collapseDocuments" class="collapse" aria-labelledby="headingDocuments" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Business Tools:</h6>
+                        <a class="collapse-item" href="utilities-color.html">Catalogs</a>
+                        <a class="collapse-item" href="utilities-color.html">Gallery</a>
+                        <a class="collapse-item" href="utilities-color.html">Upload Document</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Nav Item - Tasks Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTasks" aria-expanded="true" aria-controls="collapseTasks">
+                    <i class="fas fa-tasks"></i>
+                    <span>Task Manager</span>
+                </a>
+                <div id="collapseTasks" class="collapse" aria-labelledby="headingTasks" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Your Tasks:</h6>
+                        <a class="collapse-item" href="utilities-color.html">Assignment</a>
+                        <a class="collapse-item" href="utilities-color.html">Calander</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Nav Item - Setting Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSettings" aria-expanded="true" aria-controls="collapseSettings">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+                <div id="collapseSettings" class="collapse" aria-labelledby="headingSettings" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="utilities-color.html">Team Setting</a>
+                        <a class="collapse-item" href="utilities-color.html">Reminder Setting</a>
+                        <a class="collapse-item" href="utilities-color.html">Data Sharing Setting</a>
+                        <a class="collapse-item" href="utilities-color.html">Others</a>
                     </div>
                 </div>
             </li>
@@ -94,40 +178,40 @@
                 Addons
             </div>
 
-            <!-- Nav Item - Pages Collapse Menu -->
+            <!-- Nav Item - Documents Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Pages</span>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseEvents" aria-expanded="true" aria-controls="collapseEvents">
+                    <i class="fas fa-calendar-week"></i>
+                    <span>Event Manager</span>
                 </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div id="collapseEvents" class="collapse" aria-labelledby="headingEvents" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="login.html">Login</a>
-                        <a class="collapse-item" href="register.html">Register</a>
-                        <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-                        <div class="collapse-divider"></div>
-                        <h6 class="collapse-header">Other Pages:</h6>
-                        <a class="collapse-item" href="404.html">404 Page</a>
-                        <a class="collapse-item" href="blank.html">Blank Page</a>
+                        <h6 class="collapse-header">Events:</h6>
+                        <a class="collapse-item" href="utilities-color.html">New Event</a>
+                        <a class="collapse-item" href="utilities-color.html">Participants</a>
+                        <a class="collapse-item" href="utilities-color.html">Income</a>
+                        <a class="collapse-item" href="utilities-color.html">Expenditure</a>
+                        <a class="collapse-item" href="utilities-color.html">Reports</a>
                     </div>
                 </div>
             </li>
 
-            <!-- Nav Item - Charts -->
+            <!-- Nav Item - Contest Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseContest" aria-expanded="true" aria-controls="collapseContest">
+                    <i class="fas fa-trophy"></i>
+                    <span>Contest Manager</span>
                 </a>
-            </li>
-
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="tables.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span>
-                </a>
+                <div id="collapseContest" class="collapse" aria-labelledby="headingContest" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="login.html">New Contest</a>
+                        <a class="collapse-item" href="login.html">Terms & Conditions</a>
+                        <a class="collapse-item" href="register.html">Achievers</a>
+                        <a class="collapse-item" href="forgot-password.html">Contribution</a>
+                        <a class="collapse-item" href="forgot-password.html">Reports</a>
+                        <div class="collapse-divider"></div>
+                    </div>
+                </div>
             </li>
 
             <!-- Divider -->
@@ -203,13 +287,6 @@
 
     <!-- Custom scripts for all pages-->
     <script src="~/theme/js/sb-admin-2.min.js"></script>
-
-    <!-- Page level plugins -->
-    <script src="~/theme/vendor/chart.js/Chart.min.js"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="~/theme/js/demo/chart-area-demo.js"></script>
-    <script src="~/theme/js/demo/chart-pie-demo.js"></script>
     @RenderSection("Scripts", required: false)
 </body>
 

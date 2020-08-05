@@ -10,5 +10,15 @@ namespace InnoplixTeamMgmt.Data
             : base(options)
         {
         }
+
+        public DbSet<Prospect> Prospects { get; set; }
+
+        public DbSet<State> States { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.Entity<Prospect>().ToTable("Prospects");
+            base.OnModelCreating(builder);
+        }
     }
 }

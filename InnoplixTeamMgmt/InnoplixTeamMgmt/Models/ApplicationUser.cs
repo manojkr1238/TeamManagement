@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using System.Collections.Generic;
 
 namespace InnoplixTeamMgmt.Models
 {
@@ -11,5 +12,7 @@ namespace InnoplixTeamMgmt.Models
         public string UniqueId { get; set; }
 
         public bool IsActive { get; set; }
+
+        public virtual ICollection<Prospect> Prospects { get; set; }
     }
 }

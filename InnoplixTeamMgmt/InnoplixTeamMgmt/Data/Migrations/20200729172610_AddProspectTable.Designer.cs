@@ -4,14 +4,16 @@ using InnoplixTeamMgmt.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace InnoplixTeamMgmt.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200729172610_AddProspectTable")]
+    partial class AddProspectTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -107,7 +109,6 @@ namespace InnoplixTeamMgmt.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("City")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("DegreeOfRelation")
@@ -120,11 +121,9 @@ namespace InnoplixTeamMgmt.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Mobile")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Ocuupation")
@@ -133,51 +132,18 @@ namespace InnoplixTeamMgmt.Data.Migrations
                     b.Property<int>("Profile")
                         .HasColumnType("int");
 
-                    b.Property<int>("ProspectStatus")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProspectType")
-                        .HasColumnType("int");
-
                     b.Property<string>("Relation")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Remarks")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("State")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UserName")
-                        .HasColumnType("nvarchar(450)");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("UserName");
 
                     b.ToTable("Prospects");
-                });
-
-            modelBuilder.Entity("InnoplixTeamMgmt.Models.State", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Code")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("States");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -309,13 +275,6 @@ namespace InnoplixTeamMgmt.Data.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
-                });
-
-            modelBuilder.Entity("InnoplixTeamMgmt.Models.Prospect", b =>
-                {
-                    b.HasOne("InnoplixTeamMgmt.Models.ApplicationUser", "ApplicationUser")
-                        .WithMany("Prospects")
-                        .HasForeignKey("UserName");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

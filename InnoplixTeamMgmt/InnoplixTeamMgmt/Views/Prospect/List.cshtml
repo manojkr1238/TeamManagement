@@ -1,0 +1,100 @@
+﻿@model IEnumerable<Prospect>
+
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <div class="row">
+            <div class="col-md-6">
+                <h6 class="m-0 font-weight-bold text-primary">List of Prospects</h6>
+            </div>
+            <div class="col-md-6 text-right">
+                <a class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" asp-controller="Prospect" asp-action="Prospect">New Prospect</a>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead class="bg-primary text-white">
+                    <tr>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Mobile</th>
+                        <th>Address</th>
+                        <th>M/U</th>
+                        <th>Relation</th>
+                        <th>Occupation</th>
+                        <th>Income</th>
+                        <th>Profile</th>
+                        <th>Edit, Details</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tfoot class="bg-gray-300">
+                    <tr>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Mobile</th>
+                        <th>Address</th>
+                        <th>M/U</th>
+                        <th>Relation</th>
+                        <th>Occupation</th>
+                        <th>Income</th>
+                        <th>Profile</th>
+                        <th>Edit, Details</th>
+                        <th>Status</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @foreach (var pros in Model)
+                    {
+                        <tr>
+                            <td>@pros.Name</td>
+                            <td>@pros.Age</td>
+                            <td>@pros.Mobile</td>
+                            <td>@pros.City, @pros.State</td>
+                            <td>@pros.MaritalStatus</td>
+                            <td>@pros.Relation (@pros.DegreeOfRelation)</td>
+                            <td>@pros.Ocuupation</td>
+                            <td>@pros.Income</td>
+                            <td>@pros.Profile</td>
+                            <td>
+                                <a href="#" title="Edit"><i class="fas fa-pen-square" aria-hidden="true"></i></a>&nbsp;&nbsp;
+                                <a href="#" title="Details"><i class="fas fa-desktop" aria-hidden="true"></i></a>
+                            </td>
+                            <td><a href="#">@pros.ProspectStatus</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Style
+{
+    <!-- Custom styles for this page -->
+    <link href="~/theme/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <style type="text/css">
+        .table td, .table th {
+            padding: .30rem;
+        }
+
+        .table.table-bordered.dataTable thead th,
+        .table.table-bordered.dataTable tfoot th,
+        .table.table-bordered.dataTable tbody td {
+            font-size:smaller;
+        }
+
+    </style>
+}
+
+@section Scripts
+{
+    <!-- Page level plugins -->
+    <script src="~/theme/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/theme/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="~/theme/js/demo/datatables-demo.js"></script>
+}
