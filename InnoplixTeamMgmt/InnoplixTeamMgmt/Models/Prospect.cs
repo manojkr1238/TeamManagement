@@ -11,9 +11,9 @@ namespace InnoplixTeamMgmt.Models
         [Required(ErrorMessage = "Name is required!")]
         public string Name { get; set; }
 
-        [Required(ErrorMessage = "Age is required!")]
+        [Required(ErrorMessage ="Age is required!")]
         [Range(minimum:18, maximum:99, ErrorMessage = "Age must be between 18 to 99 years only!")]
-        public int Age { get; set; }
+        public int? Age { get; set; }
 
         [Required(ErrorMessage = "Mobile Number is required!")]
         public string Mobile { get; set; }
@@ -21,11 +21,14 @@ namespace InnoplixTeamMgmt.Models
         [Required(ErrorMessage = "City is required!")]
         public string City { get; set; }
 
-        [Required(ErrorMessage = "State is required!")]
-        public string State { get; set; }
+        [Required(ErrorMessage = "Select State!")]
+        [Range(1, int.MaxValue, ErrorMessage = "Select State!")]
+        [Display(Name="State")]
+        public int? StateId { get; set; }
 
         [Required(ErrorMessage = "Marital Status is required!")]
-        public MaritalStatus MaritalStatus { get; set; }
+        [Range(1, int.MaxValue, ErrorMessage = "Marital Status is required!")]
+        public MaritalStatus? MaritalStatus { get; set; }
 
         public string Ocuupation { get; set; }
 
@@ -51,5 +54,8 @@ namespace InnoplixTeamMgmt.Models
         public virtual ApplicationUser ApplicationUser { get; set; }
 
         public ProspectStatus ProspectStatus { get; set; }
+
+        [ForeignKey("StateId")]
+        public virtual State State { get; set; }
     }
 }

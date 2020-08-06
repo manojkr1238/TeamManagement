@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace InnoplixTeamMgmt.Data.Migrations
+namespace InnoplixTeamMgmt.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
@@ -146,18 +146,19 @@ namespace InnoplixTeamMgmt.Data.Migrations
                     b.Property<string>("Remarks")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("State")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("StateId")
+                        .HasColumnType("int");
 
                     b.Property<string>("UserName")
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("StateId");
+
                     b.HasIndex("UserName");
 
-                    b.ToTable("Prospects");
+                    b.ToTable("Prospect");
                 });
 
             modelBuilder.Entity("InnoplixTeamMgmt.Models.State", b =>
@@ -177,7 +178,7 @@ namespace InnoplixTeamMgmt.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("States");
+                    b.ToTable("State");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -313,6 +314,12 @@ namespace InnoplixTeamMgmt.Data.Migrations
 
             modelBuilder.Entity("InnoplixTeamMgmt.Models.Prospect", b =>
                 {
+                    b.HasOne("InnoplixTeamMgmt.Models.State", "State")
+                        .WithMany("Prospects")
+                        .HasForeignKey("StateId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("InnoplixTeamMgmt.Models.ApplicationUser", "ApplicationUser")
                         .WithMany("Prospects")
                         .HasForeignKey("UserName");

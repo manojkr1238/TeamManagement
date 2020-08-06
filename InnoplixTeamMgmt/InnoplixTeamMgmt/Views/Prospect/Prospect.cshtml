@@ -12,100 +12,108 @@
         </div>
     </div>
     <div class="card-body">
-            <form asp-action="Prospect">
-                <div class="col-md-4">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    @if (ViewBag.IsEdit)
-                    {
-                        <input type="hidden" asp-for="Id" />
-                    }
+        @if (ViewBag.IsSuccess)
+        {
+            <div class="card bg-success text-white shadow">
+                <div class="card-body">
+                    Congratulations! You have added new prospect in your list successfully.
+                </div>
+            </div>
+        }
+        <form asp-action="Prospect">
+            <div class="col-md-4">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                @if (ViewBag.IsEdit)
+                {
+                    <input type="hidden" asp-for="Id" />
+                }
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Age" class="control-label"></label>
+                    <input asp-for="Age" class="form-control" maxlength="2" />
+                    <span asp-validation-for="Age" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Mobile" class="control-label"></label>
+                    <input asp-for="Mobile" class="form-control" />
+                    <span asp-validation-for="Mobile" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="City" class="control-label"></label>
+                    <input asp-for="City" class="form-control" />
+                    <span asp-validation-for="City" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="StateId" class="control-label"></label>
+                    <select asp-for="StateId" class="form-control" asp-items="@(new SelectList(ViewBag.StateList,"Id","Name"))"></select>
+                    <span asp-validation-for="StateId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="MaritalStatus" class="control-label"></label>
+                    <select asp-for="MaritalStatus" class="form-control" asp-items="Html.GetEnumSelectList<MaritalStatus>()">
+                        <option>Please select marital status</option>
+                    </select>
+                    <span asp-validation-for="MaritalStatus" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Ocuupation" class="control-label"></label>
+                    <input asp-for="Ocuupation" class="form-control" />
+                    <span asp-validation-for="Ocuupation" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Income" class="control-label"></label>
+                    <input asp-for="Income" class="form-control" />
+                    <span asp-validation-for="Income" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Relation" class="control-label"></label>
+                    <input asp-for="Relation" class="form-control" />
+                    <span asp-validation-for="Relation" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DegreeOfRelation" class="control-label"></label>
+                    <select asp-for="DegreeOfRelation" class="form-control" asp-items="Html.GetEnumSelectList<DegreeOfRelation>()">
+                        <option>Please select degree of relation</option>
+                    </select>
+                    <span asp-validation-for="DegreeOfRelation" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Profile" class="control-label"></label>
+                    <select asp-for="Profile" class="form-control" asp-items="Html.GetEnumSelectList<Profile>()">
+                        <option>Please select profile</option>
+                    </select>
+                    <span asp-validation-for="Profile" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ProspectType" class="control-label"></label>
+                    <select asp-for="ProspectType" class="form-control" asp-items="Html.GetEnumSelectList<ProspectType>()">
+                        <option>Please select prospect type</option>
+                    </select>
+                    <span asp-validation-for="ProspectType" class="text-danger"></span>
+                </div>
+                @if (ViewBag.IsEdit)
+                {
                     <div class="form-group">
-                        <label asp-for="Name" class="control-label"></label>
-                        <input asp-for="Name" class="form-control" />
-                        <span asp-validation-for="Name" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Age" class="control-label"></label>
-                        <input asp-for="Age" class="form-control" maxlength="2" />
-                        <span asp-validation-for="Age" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Mobile" class="control-label"></label>
-                        <input asp-for="Mobile" class="form-control" />
-                        <span asp-validation-for="Mobile" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="City" class="control-label"></label>
-                        <input asp-for="City" class="form-control" />
-                        <span asp-validation-for="City" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="State" class="control-label"></label>
-                        <select asp-for="State" class="form-control" asp-items="@(new SelectList(ViewBag.StateList,"Id","Name"))"></select>
-                        <span asp-validation-for="State" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="MaritalStatus" class="control-label"></label>
-                        <select asp-for="MaritalStatus" class="form-control" asp-items="Html.GetEnumSelectList<MaritalStatus>()">
-                            <option>Please select marital status</option>
+                        <label asp-for="ProspectStatus" class="control-label"></label>
+                        <select asp-for="ProspectStatus" class="form-control" asp-items="Html.GetEnumSelectList<ProspectStatus>()">
+                            <option>Please select prospect status</option>
                         </select>
-                        <span asp-validation-for="MaritalStatus" class="text-danger"></span>
+                        <span asp-validation-for="ProspectStatus" class="text-danger"></span>
                     </div>
-                    <div class="form-group">
-                        <label asp-for="Ocuupation" class="control-label"></label>
-                        <input asp-for="Ocuupation" class="form-control" />
-                        <span asp-validation-for="Ocuupation" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Income" class="control-label"></label>
-                        <input asp-for="Income" class="form-control" />
-                        <span asp-validation-for="Income" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Relation" class="control-label"></label>
-                        <input asp-for="Relation" class="form-control" />
-                        <span asp-validation-for="Relation" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="DegreeOfRelation" class="control-label"></label>
-                        <select asp-for="DegreeOfRelation" class="form-control" asp-items="Html.GetEnumSelectList<DegreeOfRelation>()">
-                            <option>Please select degree of relation</option>
-                        </select>
-                        <span asp-validation-for="DegreeOfRelation" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Profile" class="control-label"></label>
-                        <select asp-for="Profile" class="form-control" asp-items="Html.GetEnumSelectList<Profile>()">
-                            <option>Please select profile</option>
-                        </select>
-                        <span asp-validation-for="Profile" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="ProspectType" class="control-label"></label>
-                        <select asp-for="ProspectType" class="form-control" asp-items="Html.GetEnumSelectList<ProspectType>()">
-                            <option>Please select prospect type</option>
-                        </select>
-                        <span asp-validation-for="ProspectType" class="text-danger"></span>
-                    </div>
-                    @if (ViewBag.IsEdit)
-                    {
-                        <div class="form-group">
-                            <label asp-for="ProspectStatus" class="control-label"></label>
-                            <select asp-for="ProspectStatus" class="form-control" asp-items="Html.GetEnumSelectList<ProspectStatus>()">
-                                <option>Please select prospect status</option>
-                            </select>
-                            <span asp-validation-for="ProspectStatus" class="text-danger"></span>
-                        </div>
-                    }
-                    <div class="form-group">
-                        <label asp-for="Remarks" class="control-label"></label>
-                        <input asp-for="Remarks" class="form-control" multiple />
-                        <span asp-validation-for="Remarks" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <input type="submit" value="Save" class="btn btn-primary" />
-                    </div>
-                </div>                
-            </form>
+                }
+                <div class="form-group">
+                    <label asp-for="Remarks" class="control-label"></label>
+                    <input asp-for="Remarks" class="form-control" multiple />
+                    <span asp-validation-for="Remarks" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </div>                
+        </form>
     </div>
 </div>

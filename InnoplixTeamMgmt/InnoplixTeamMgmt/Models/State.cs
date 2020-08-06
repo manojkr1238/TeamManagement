@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace InnoplixTeamMgmt.Models
 {
@@ -12,5 +13,7 @@ namespace InnoplixTeamMgmt.Models
 
         [Required]
         public string Code { get; set; }
+
+        public virtual ICollection<Prospect> Prospects { get; set; }
     }
 }
