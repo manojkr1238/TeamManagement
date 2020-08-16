@@ -23,6 +23,6 @@ namespace InnoplixTeamMgmt.Data.Model
         public int ProspectStatus { get; set; }
 
         public virtual State State { get; set; }
-        public virtual AspNetUsers UserNameNavigation { get; set; }
+        public virtual AspNetUser UserNameNavigation { get; set; }
     }
 }

@@ -7,13 +7,13 @@ namespace InnoplixTeamMgmt.Data.Model
     {
         public State()
         {
-            Prospect = new HashSet<Prospect>();
+            Prospects = new HashSet<Prospect>();
         }
 
         public int Id { get; set; }
         public string Name { get; set; }
         public string Code { get; set; }
 
-        public virtual ICollection<Prospect> Prospect { get; set; }
+        public virtual ICollection<Prospect> Prospects { get; set; }
     }
 }
