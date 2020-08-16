@@ -6,3 +6,11 @@
 /InnoplixTeamMgmt/.vs/InnoplixTeamMgmt/v16
 /InnoplixTeamMgmt/InnoplixTeamMgmt/bin/Debug/netcoreapp3.1
 /InnoplixTeamMgmt/InnoplixTeamMgmt/obj
+/InnoplixTeamMgmt/InnoplixTeamMgmt.Data/bin/Debug/netcoreapp3.1
+/InnoplixTeamMgmt/InnoplixTeamMgmt.Data/obj
+/InnoplixTeamMgmt/InnoplixTeamMgmt.Model/bin/Debug/netcoreapp3.1
+/InnoplixTeamMgmt/InnoplixTeamMgmt.Model/obj
+/InnoplixTeamMgmt/InnoplixTeamMgmt.Repository/bin/Debug/netcoreapp3.1
+/InnoplixTeamMgmt/InnoplixTeamMgmt.Repository/obj
+/InnoplixTeamMgmt/InnoplixTeamMgmt.WebApi/bin/Debug/netcoreapp3.1
+/InnoplixTeamMgmt/InnoplixTeamMgmt.WebApi/obj

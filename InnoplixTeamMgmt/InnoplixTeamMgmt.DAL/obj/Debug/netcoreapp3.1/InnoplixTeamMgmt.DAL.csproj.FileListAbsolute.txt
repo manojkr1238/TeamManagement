@@ -1,0 +1,13 @@
+D:\AspNetCore\InnoplixTeamMgmt\InnoplixTeamMgmt\InnoplixTeamMgmt.DAL\bin\Debug\netcoreapp3.1\InnoplixTeamMgmt.DAL.deps.json
+D:\AspNetCore\InnoplixTeamMgmt\InnoplixTeamMgmt\InnoplixTeamMgmt.DAL\bin\Debug\netcoreapp3.1\InnoplixTeamMgmt.DAL.dll
+D:\AspNetCore\InnoplixTeamMgmt\InnoplixTeamMgmt\InnoplixTeamMgmt.DAL\bin\Debug\netcoreapp3.1\InnoplixTeamMgmt.DAL.pdb
+D:\AspNetCore\InnoplixTeamMgmt\InnoplixTeamMgmt\InnoplixTeamMgmt.DAL\obj\Debug\netcoreapp3.1\InnoplixTeamMgmt.DAL.AssemblyInfoInputs.cache
+D:\AspNetCore\InnoplixTeamMgmt\InnoplixTeamMgmt\InnoplixTeamMgmt.DAL\obj\Debug\netcoreapp3.1\InnoplixTeamMgmt.DAL.AssemblyInfo.cs
+D:\AspNetCore\InnoplixTeamMgmt\InnoplixTeamMgmt\InnoplixTeamMgmt.DAL\obj\Debug\netcoreapp3.1\InnoplixTeamMgmt.DAL.dll
+D:\AspNetCore\InnoplixTeamMgmt\InnoplixTeamMgmt\InnoplixTeamMgmt.DAL\obj\Debug\netcoreapp3.1\InnoplixTeamMgmt.DAL.pdb
+D:\AspNetCore\InnoplixTeamMgmt\InnoplixTeamMgmt\InnoplixTeamMgmt.DAL\bin\Debug\netcoreapp3.1\InnoplixTeamMgmt.DAL.runtimeconfig.json
+D:\AspNetCore\InnoplixTeamMgmt\InnoplixTeamMgmt\InnoplixTeamMgmt.DAL\bin\Debug\netcoreapp3.1\InnoplixTeamMgmt.DAL.runtimeconfig.dev.json
+D:\AspNetCore\InnoplixTeamMgmt\InnoplixTeamMgmt\InnoplixTeamMgmt.DAL\obj\Debug\netcoreapp3.1\InnoplixTeamMgmt.DAL.genruntimeconfig.cache
+D:\AspNetCore\InnoplixTeamMgmt\InnoplixTeamMgmt\InnoplixTeamMgmt.DAL\obj\Debug\netcoreapp3.1\InnoplixTeamMgmt.DAL.csproj.CoreCompileInputs.cache
+D:\AspNetCore\InnoplixTeamMgmt\InnoplixTeamMgmt\InnoplixTeamMgmt.DAL\bin\Debug\netcoreapp3.1\appsettings.Development.json
+D:\AspNetCore\InnoplixTeamMgmt\InnoplixTeamMgmt\InnoplixTeamMgmt.DAL\bin\Debug\netcoreapp3.1\appsettings.json
