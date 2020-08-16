@@ -17,8 +17,8 @@ namespace InnoplixTeamMgmt.Data
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-           builder.Entity<Prospect>().ToTable("Prospect");
-           builder.Entity<State>().ToTable("State");
+            builder.Entity<Prospect>().ToTable("Prospect");
+            builder.Entity<State>().ToTable("State");
             base.OnModelCreating(builder);
         }
     }

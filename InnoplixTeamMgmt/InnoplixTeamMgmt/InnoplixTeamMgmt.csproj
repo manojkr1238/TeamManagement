@@ -6,30 +6,39 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Data\Migrations\**" />
     <Compile Remove="wwwroot\css\**" />
     <Compile Remove="wwwroot\js\**" />
     <Compile Remove="wwwroot\lib\**" />
     <Compile Remove="wwwroot\theme\dist\**" />
     <Compile Remove="wwwroot\theme\scripts\**" />
     <Compile Remove="wwwroot\theme\src\**" />
+    <Content Remove="Data\Migrations\**" />
     <Content Remove="wwwroot\css\**" />
     <Content Remove="wwwroot\js\**" />
     <Content Remove="wwwroot\lib\**" />
     <Content Remove="wwwroot\theme\dist\**" />
     <Content Remove="wwwroot\theme\scripts\**" />
     <Content Remove="wwwroot\theme\src\**" />
+    <EmbeddedResource Remove="Data\Migrations\**" />
     <EmbeddedResource Remove="wwwroot\css\**" />
     <EmbeddedResource Remove="wwwroot\js\**" />
     <EmbeddedResource Remove="wwwroot\lib\**" />
     <EmbeddedResource Remove="wwwroot\theme\dist\**" />
     <EmbeddedResource Remove="wwwroot\theme\scripts\**" />
     <EmbeddedResource Remove="wwwroot\theme\src\**" />
+    <None Remove="Data\Migrations\**" />
     <None Remove="wwwroot\css\**" />
     <None Remove="wwwroot\js\**" />
     <None Remove="wwwroot\lib\**" />
     <None Remove="wwwroot\theme\dist\**" />
     <None Remove="wwwroot\theme\scripts\**" />
     <None Remove="wwwroot\theme\src\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20200805162100_initial.cs" />
+    <Compile Remove="Migrations\20200805162100_initial.Designer.cs" />
   </ItemGroup>
 
 
@@ -1857,11 +1866,6 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.3" />
-  </ItemGroup>
-
-
-  <ItemGroup>
-    <Folder Include="Data\Migrations\" />
   </ItemGroup>
 
 </Project>

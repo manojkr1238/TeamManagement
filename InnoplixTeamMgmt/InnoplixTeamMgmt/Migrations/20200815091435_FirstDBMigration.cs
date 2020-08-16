@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace InnoplixTeamMgmt.Migrations
 {
-    public partial class initial : Migration
+    public partial class FirstDBMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
