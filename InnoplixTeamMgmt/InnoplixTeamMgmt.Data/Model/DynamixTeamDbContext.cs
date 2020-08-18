@@ -36,7 +36,7 @@ namespace InnoplixTeamMgmt.Data.Model
 
                 IConfigurationRoot configuration = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json").Build();
                 var connectionString = configuration.GetConnectionString("DefaultConnection");
-                optionsBuilder.UseSqlServer(connectionString);
+                optionsBuilder.UseSqlServer("Server=localhost;Database=DynamixTeamDb;Trusted_Connection=True;");
             }
         }
 
