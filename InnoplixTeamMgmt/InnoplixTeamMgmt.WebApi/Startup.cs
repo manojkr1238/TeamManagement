@@ -1,19 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using InnoplixTeamMgmt.Data;
 using InnoplixTeamMgmt.Data.Model;
 using InnoplixTeamMgmt.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 
 namespace InnoplixTeamMgmt.WebApi
 {
@@ -29,6 +20,10 @@ namespace InnoplixTeamMgmt.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(c =>
+            {
+                c.AddPolicy("AllowOrigin", options => options.WithOrigins("http://localhost:3000"));
+            });
             services.AddControllers();
 
             #region Repositories
@@ -46,6 +41,8 @@ namespace InnoplixTeamMgmt.WebApi
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors(options => options.WithOrigins("http://localhost:3000"));
 
             app.UseHttpsRedirection();
 

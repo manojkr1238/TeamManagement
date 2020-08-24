@@ -5,7 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\InnoplixTeamMgmt.Data\InnoplixTeamMgmt.Data.csproj" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.Cors" Version="5.2.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.7" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\InnoplixTeamMgmt.Repository\InnoplixTeamMgmt.Repository.csproj" />
   </ItemGroup>
 

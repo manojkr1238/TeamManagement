@@ -9,30 +9,30 @@ namespace InnoplixTeamMgmt.WebApi.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [EnableCors("AllowOrigin", "*", "*")]
-    public class StateController : ControllerBase
+    public class ListBookController : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;
-        public StateController(IUnitOfWork unitOfWork)
+        public ListBookController(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAllStates()
+        public async Task<IActionResult> GetAllProspects()
         {
-            var states = await _unitOfWork.GetRepository<State>().GetAllAsync();
-            return Ok(states);
+            var prospects = await _unitOfWork.GetRepository<Prospect>().GetAllAsync();
+            return Ok(prospects);
         }
 
         [HttpGet("{Id}")]
         public async Task<IActionResult> FindStateById(int id)
         {
-            var state = await _unitOfWork.GetRepository<State>().FindAsync(s => s.Id == id);
-            if(state == null)
+            var prospect = await _unitOfWork.GetRepository<Prospect>().FindAsync(s => s.Id == id);
+            if (prospect == null)
             {
                 return NotFound();
             }
-            return Ok(state);
+            return Ok(prospect);
         }
     }
 }
